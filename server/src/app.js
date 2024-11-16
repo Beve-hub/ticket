@@ -10,7 +10,6 @@ const passport = require('passport');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-const URL = "mongodb://localhost:27017/data";
 
 app.use(express.json()); // Middleware to parse JSON bodies in POST requests
 app.use(bodyParser.json());
@@ -30,7 +29,7 @@ app.use(session({
 
 
 
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected"))
     .catch((error) => console.error("MongoDB connection error:", error));
 
