@@ -19,7 +19,7 @@ passport.use(
     new Strategy({
         clientID: process.env.DISCORD_CLIENTID,
         clientSecret: process.env.DISCOD_CLIENT_SECRET,
-        callbackURL: 'http://localhost:5000/api/auth/discord/redirect',
+        callbackURL: 'https://ticket-7b2h.onrender.com/api/auth/discord/redirect',
         scope: ['identify', 'guilds']
     },
     async (accessToken, refreshToken, profile, done) => { 
