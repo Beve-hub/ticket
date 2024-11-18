@@ -1,11 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/landingPage/HomePage';
+import Navwrapper from './pages/layout/Navwrapper';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
+    element: <Navwrapper />,
+    children: [
+      {path: '/', element: <HomePage/>}
+    ]
   },
 ]);
 
