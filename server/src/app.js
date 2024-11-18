@@ -10,7 +10,7 @@ const passport = require('passport');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-const password = encodeURIComponent('@Password5$');
+const password = encodeURIComponent(process.env.PASSWORD);
 const URL = `mongodb+srv://user1:${password}@tickethub.zkdyd.mongodb.net/?retryWrites=true&w=majority&appName=tickethub`;
 
 
