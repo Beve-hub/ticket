@@ -164,6 +164,116 @@ const sendOTPVerification = async (user, res) => {
 };
 
 
+// Request password reset
+router.post('/forgot-password', async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        if (!email) {
+            return res.status(400).json({ message: 'Please provide your email' });
+        }
+
+        // Check if the user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Generate a secure reset token
+        const resetToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
+
+        // Send reset email
+        const resetLink = `http://your-app-url/reset-password?token=${resetToken}`;
+        const mailOptions = {
+            from: 'nexcelgloba@gmail.com',
+            to: email,
+            subject: 'Password Reset',
+            html: `<p>Click <a href="${resetLink}">here</a> to reset your password. This link expires in 15 minutes.</p>`
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        res.json({ message: 'Password reset link sent to your email.' });
+    } catch (error) {
+        console.error('Error requesting password reset:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+// Reset password
+router.post('/reset-password', async (req, res) => {
+    try {
+        const { token, newPassword } = req.body;
+
+        if (!token || !newPassword) {
+            return res.status(400).json({ message: 'Token and new password are required' });
+        }
+
+        // Verify the token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decoded._id;
+
+        // Validate new password
+        if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(newPassword)) {
+            return res.status(400).json({ message: 'Password must meet complexity requirements' });
+        }
+
+        // Hash the new password
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        // Update the user's password
+        await User.updateOne({ _id: userId }, { password: hashedPassword });
+
+        res.json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error('Error resetting password:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+// Update password
+router.post('/change-password', async (req, res) => {
+    try {
+        const { userId, oldPassword, newPassword } = req.body;
+
+        if (!userId || !oldPassword || !newPassword) {
+            return res.status(400).json({ message: 'Please provide all required fields' });
+        }
+
+        // Find the user
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Verify old password
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Old password is incorrect' });
+        }
+
+        // Validate new password
+        if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(newPassword)) {
+            return res.status(400).json({ message: 'Password must meet complexity requirements' });
+        }
+
+        // Hash the new password
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        // Update the user's password
+        user.password = hashedPassword;
+        await user.save();
+
+        res.json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error('Error updating password:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
 // Discord OAuth
 router.get('/discord', passport.authenticate('discord'));
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
