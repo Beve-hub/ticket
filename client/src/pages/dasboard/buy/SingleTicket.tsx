@@ -2,12 +2,12 @@ import React from 'react'
 
 
 
-const Pricing = () => {
+const SingleTicket = () => {
     return (
         <div>
-            price
+            purchase
         </div>
     )
 }
 
-export default Pricing
+export default SingleTicket

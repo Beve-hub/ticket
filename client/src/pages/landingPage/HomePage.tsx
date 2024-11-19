@@ -8,6 +8,7 @@ import Pricing from './Pricing'
 const HomePage = () => {
   return (
     <>
+    
       <HeroPage/>
       <SectionPage/>
       <CustomPage/>

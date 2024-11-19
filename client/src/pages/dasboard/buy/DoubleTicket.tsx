@@ -4,12 +4,12 @@ interface Props {
     
 }
 
-const Navbar: React.FC<Props> = () => {
+const DoubleTicket = () => {
     return (
         <div>
-            nav
+            purchase
         </div>
     )
 }
 
-export default Navbar
+export default DoubleTicket

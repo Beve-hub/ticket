@@ -1,11 +1,11 @@
 import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import Navbar from '../landingPage/Navbar';
+import Navbar from './Navbar';
 
 
 const Navwrapper = () => {
     const location = useLocation();
-    const showNav = ['/homePage'].includes(location.pathname); 
+    const showNav = ['/'].includes(location.pathname); 
     
     return (
         <div>
