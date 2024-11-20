@@ -1,0 +1,22 @@
+/* global.css */
+
+/* Set global styles for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Replace with your preferred font */
+    background-color: white; /* Set background color to black */
+    color: black; /* Set default text color to white */
+  }
+  
+  /* Remove default link styling and ensure text is white */
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Apply box-sizing for consistent spacing */
+  * {
+    box-sizing: border-box;
+  }
+ 
