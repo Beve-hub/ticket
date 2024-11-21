@@ -26,6 +26,7 @@ const CustomInput: React.FC<InputFieldProps> = ({ icon, type, ...props }) => {
   return (
     <TextInput
       {...props}
+      
       type={isPasswordType ? (isPasswordVisible ? 'text' : 'password') : type} // Conditionally change type
       rightSection={
         Icon ? (

@@ -1,16 +1,13 @@
-import { Center, Image, SimpleGrid, Box, Group, Text, Checkbox, UnstyledButton, Button } from '@mantine/core';
+import { Center, Image, SimpleGrid, Box, Group, Text, Checkbox, UnstyledButton} from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks'; // Import useMediaQuery
-import IMG from '../../asset/Bandar.png';
-import Logo from '../../asset/logo2.png';
+import IMG from '../../asset/Group 215.png';
+import Logo from '../../asset/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { notifications } from '@mantine/notifications';
 import { Color } from '../util/Theme';
 import CustomInput from '../util/CustomInput';
-
-
-
-
+import CustomButton from '../util/CustomButton';
 
 
 interface Errors {
@@ -62,12 +59,13 @@ const Login = () => {
            
             try {
                 await login();
+                navigate('/dashboard'); // Redirect to dashboard after successful login
                 // Notify user on successful registration and email verification
                 notifications.show({
                     title: `Login Successful `,
                     message: `Welcome onboard, we are happy to have you`,
                     color: Color.SUCCESS_COLOR,
-                    position:'top-right',
+                    position:'bottom-right',
                 });
             } catch (error) {
                 setServerError('Failed to log in. Please try again later.');
@@ -75,7 +73,7 @@ const Login = () => {
                     title: 'Login Failed',
                     message: 'Something went wrong. Please try again later.',
                     color: Color.ERROR_COLOR,
-                    position:'top-right',
+                    position:'bottom-right',
                 });
             } 
         }
@@ -124,6 +122,20 @@ const Login = () => {
                            display: 'flex',
                         }}
                     >
+                        <Group style={{         
+                            display:'grid',           
+                            position: 'absolute',
+                            top: '10%',
+                            left: '10%',
+                            transform: 'translate(-50%, -50%)',
+                        }}>
+                        <Image src={Logo} style={{
+                            width: '4rem',
+                            height: '4rem',                           
+                        }} />
+                        <Text size="md" fw={700} color={Color.WHITE} style={{ marginTop: '5px', textAlign: 'start', width: '100%', maxWidth: '20rem' }}> TicketHub</Text>
+                        </Group>
+                        
                         <Image src={IMG} h="60vh"  />
                     </Box>
                 )}
@@ -142,19 +154,13 @@ const Login = () => {
                         maxWidth: '400px', // Restrict form width
                         padding: '20px',
                     }}>
-                        <Image src={Logo} style={{
-                            width: '5rem',
-                            height: '5rem',
-                        }} />
+                        
                         <div style={{marginTop:10,marginBottom:10}}>
                             <Text fz={30} fw={700}>
                                 Sign In
                             </Text>
-                            <Text fz={18}>
-                                Don’t have an account?
-                                <UnstyledButton onClick={handleRegister} style={{color:Color.PRIMARY,textDecoration: 'underline', fontSize:18, marginLeft:10 }}>
-                                    Sign Up
-                                </UnstyledButton>
+                            <Text fz={14} color={Color.GRAY}>
+                            Welcome back, pls provide your details.
                             </Text>
                         </div>
                         <CustomInput
@@ -179,7 +185,7 @@ const Login = () => {
                                 error={errors.password}
                             />
                         
-                        <Box mb={30} style={{display: 'flex', justifyContent:'space-between'}}>
+                        <Box mb={15} style={{display: 'flex', justifyContent:'space-between'}}>
                             <Group>
                                 <Checkbox
                                     label="Remember Me"
@@ -190,8 +196,14 @@ const Login = () => {
                             <UnstyledButton onClick={handleForgot} style={{color:Color.PRIMARY}}>Forgot Password?</UnstyledButton>
                         </Box>
                         {serverError && <Text color="red" size="sm">{serverError}</Text>}
-                       <Button variant="filled" color={Color.PRIMARY} onClick={handleSubmit}>Submit</Button>
-                    </div>
+                        <CustomButton variant="filled" color={Color.PRIMARY} onClick={handleSubmit} label="Submit"/>
+                        <Text fz={18} style={{ textAlign:'center'}}>
+                                Don’t have an account?
+                                <UnstyledButton onClick={handleRegister} style={{color:Color.PRIMARY,textDecoration: 'underline', fontSize:18, marginLeft:10 }}>
+                                    Sign Up
+                                </UnstyledButton>
+                            </Text>
+                 </div>
                 </Box>
             </SimpleGrid>
         </Center>
