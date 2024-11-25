@@ -5,9 +5,10 @@ import { FiLock, FiUnlock } from 'react-icons/fi'; // Import lock/unlock icons
 
 interface InputFieldProps extends TextInputProps {
   icon?: IconType; // Use IconType for React Icons
+  
 }
 
-const CustomInput: React.FC<InputFieldProps> = ({ icon, type, ...props }) => {
+const CustomInput: React.FC<InputFieldProps> = ({ icon, type,  ...props }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   // Determine if the input type is password and use default icons accordingly
@@ -26,6 +27,7 @@ const CustomInput: React.FC<InputFieldProps> = ({ icon, type, ...props }) => {
   return (
     <TextInput
       {...props}
+     
       type={isPasswordType ? (isPasswordVisible ? 'text' : 'password') : type} // Conditionally change type
       rightSection={
         Icon ? (
