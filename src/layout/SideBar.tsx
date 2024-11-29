@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../asset/logo2.png';
 import { FaCircleUser } from 'react-icons/fa6';
+import { MdAccountBalance } from "react-icons/md";
 import { FiLogOut } from 'react-icons/fi'; // Import logout icon
 
 const SideBar = () => {
@@ -85,10 +86,12 @@ const SideBar = () => {
             </Menu.Target>
 
             <Menu.Dropdown>
+            <Menu.Item onClick={() => navigate('/myAccount')} style={{ display: 'flex', alignItems: 'center' }}>
+                    <MdAccountBalance  size={16} style={{ marginRight: 8, paddingTop:6 }} /> My Account
+            </Menu.Item>
             <Menu.Item onClick={handleLogout} style={{ display: 'flex', alignItems: 'center' }}>
-  <FiLogOut size={16} style={{ marginRight: 8, paddingTop:6 }} /> Logout
-</Menu.Item>
-
+                    <FiLogOut size={16} style={{ marginRight: 8, paddingTop:6 }} /> Logout
+            </Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </Group>

@@ -1,4 +1,4 @@
-import { Box, Button, Container,  Modal,  RangeSlider,  SimpleGrid,  Stepper,  Text, UnstyledButton } from '@mantine/core';
+import { Box, Button, Container,  Modal,  RangeSlider,  SimpleGrid,  Stepper,  Switch,  Text, UnstyledButton } from '@mantine/core';
 import React, { useState } from 'react';
 import CustomInput from '../util/CustomInput';
 import CustomSelect from '../util/CustomSelect';
@@ -14,6 +14,8 @@ import { LuMic2 } from "react-icons/lu";
 import { SlGraduation } from "react-icons/sl";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { RiVidiconLine } from "react-icons/ri";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 
 export const categoryData = [
@@ -57,12 +59,17 @@ interface Errors {
     startTime?: string;
     endTime?: string;
     selectLocation?: string;
+    amount?: string;
+    accountName?:string;
+    accountNumber?:string;
+    bankName?:string;
 }
 
 
 
 const CreateEvent = () => {
     const isSmall = useMediaQuery('(max-width: 768px)');
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         eventName: '',
         venue: '',            
@@ -72,17 +79,92 @@ const CreateEvent = () => {
         endTime: '',
         startDate: '',
         endDate: '',
-        
+        amount:''  ,
+        accountName:'',
+        accountNumber:'',
+        bankName:''   
     });
    const [selected, setSelected] = useState(categoryData[0]);
    const [selectLocation, setSelectLocation] = useState(LocationData[0]);
    const [filterVenue, setFilterVenue]  = useState(venues);
    const [showVenue, setShowVenue] = useState(false);
+   const [isFree, setIsFree] = useState(false);
    const [showPrice, setShowPrice] = useState<[number, number]>([500,500]);
    const [errors, setErrors] = useState<Errors>({});
    const [activeStep, setActiveStep ] = useState(0);
   
+   const validate = (): boolean => {
+    const errors: Errors = {};
+    let isValid = true;
 
+    if (activeStep === 0) {
+        if (!formData.eventName || formData.eventName.trim().length === 0) {
+            errors.eventName = 'Please enter a valid name';
+            isValid = false;
+        }
+
+        if (!formData.description || formData.description.length < 10) {
+            errors.description = 'Description should be at least 10 characters long';
+            isValid = false;
+        }
+        if (!selected ) {
+            errors.selected = 'Event type is required';
+            isValid = false;
+        }
+    } else if (activeStep === 1 ) {
+        if (!formData.startDate) {
+            errors.startDate = 'Start date is required';
+            isValid = false;
+        }
+
+        if (!formData.endDate) {
+            errors.endDate = 'End date is required';
+            isValid = false;
+        }
+
+        if (!formData.startTime) {
+            errors.startTime = 'Start Time is required';
+            isValid = false;
+        }
+
+        if (!formData.endTime) {
+            errors.endTime = 'End Time is required';
+            isValid = false;
+        }
+    } else if (activeStep === 2) {
+        if (!formData.venue) {
+            errors.venue = 'Venue is required';
+            isValid = false;
+        }
+        if (!selectLocation) {
+            errors.selectLocation = 'Location is required';
+            isValid = false;
+        }
+        if (!isFree && !formData.amount  ) {
+            errors.amount = 'Ticket amount is required';
+            isValid = false;
+        }
+
+        if (!isFree) {
+            if (!formData.accountName ) {
+                errors.accountName = 'Account Name is required';
+                isValid = false;
+            }
+            if (!formData.accountNumber ) {
+                errors.description = 'Account Number is required';
+                isValid = false;
+            }
+            if (!formData.bankName ) {
+                errors.bankName = 'Bank Name is required';
+                isValid = false;
+            }
+        }
+        
+    }
+
+    setErrors(errors);
+    return isValid;
+};
 
    const handleNext = () => {
     if (validate()) {
@@ -94,58 +176,22 @@ const CreateEvent = () => {
        setActiveStep((prevActiveStep) => prevActiveStep - 1);
    };
 
-    const validate = (): boolean => {
-        const errors: Errors = {};
-        let isValid = true;
+    
+   const handleSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const isChecked = event.currentTarget.checked
+    setIsFree(isChecked);
+       if (isChecked) {
+        setFormData((prevData) => ({...prevData,
+             amount: isChecked ? '' : prevData.amount, }));
+       }
 
-        if (activeStep === 0) {
-            if (!formData.eventName || formData.eventName.trim().length === 0) {
-                errors.eventName = 'Please enter a valid name';
-                isValid = false;
-            }
-    
-            if (!formData.description || formData.description.length < 10) {
-                errors.description = 'Description should be at least 10 characters long';
-                isValid = false;
-            }
-            if (!selected ) {
-                errors.selected = 'Event type is required';
-                isValid = false;
-            }
-        } else if (activeStep === 1 ) {
-            if (!formData.startDate) {
-                errors.startDate = 'Start date is required';
-                isValid = false;
-            }
-    
-            if (!formData.endDate) {
-                errors.endDate = 'End date is required';
-                isValid = false;
-            }
-    
-            if (!formData.startTime) {
-                errors.startTime = 'Start Time is required';
-                isValid = false;
-            }
-    
-            if (!formData.endTime) {
-                errors.endTime = 'End Time is required';
-                isValid = false;
-            }
-        } else if (activeStep === 2) {
-            if (!formData.venue) {
-                errors.venue = 'Venue is required';
-                isValid = false;
-            }
-            if (!selectLocation) {
-                errors.selectLocation = 'Location is required';
-                isValid = false;
-            }
-        }
-
-        setErrors(errors);
-        return isValid;
-    };
+       if (isChecked) {
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            amount: undefined, // Remove error for amount if event is free
+        }))
+       }
+   }; 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -185,27 +231,26 @@ const CreateEvent = () => {
 
     const handleSubmit = async () => {
         if (validate()) {
-           
             try {
-                         
-                // Notify user on successful registration and email verification
+                navigate('/myAccount', { state: { item: errors } }); // Pass the current errors state
+                // Notify user on successful event creation
                 notifications.show({
-                    title: `Registration Successful `,
-                    message: `Event  has been created success.`,
+                    title: 'Registration Successful',
+                    message: 'Event has been created successfully.',
                     color: Color.SUCCESS_COLOR,
-                    position:'bottom-right',
+                    position: 'bottom-right',
                 });
-                
             } catch (error) {
                 notifications.show({
                     title: 'Registration Failed',
                     message: 'Something went wrong. Please try again later.',
                     color: Color.ERROR_COLOR,
-                    position:'bottom-right',
+                    position: 'bottom-right',
                 });
             }
         }
     };
+    
 
     return (
         <Container 
@@ -430,6 +475,72 @@ const CreateEvent = () => {
                        />
                        <Text>                        
                        Don't have a venue yet?{' '} <UnstyledButton onClick={() => setShowVenue(true)} style={{color:Color.PRIMARY, fontWeight:'bold'}}>Check Out</UnstyledButton> </Text>
+            </Box>
+            <Box mt="md">
+            <Box mb="md" style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+            <Text>
+             <span style={{
+             fontSize: '1rem',
+             fontWeight: 'bold'
+             }}>Payment</span>
+                           
+                       </Text>
+            <Switch     
+             label="Event is free"     
+             checked={isFree}
+             onLabel="ON" offLabel="OFF" 
+             onChange={handleSwitch}
+            color={Color.SUCCESS_COLOR}
+            size="md"
+           
+            />
+
+            </Box>
+            
+                       <CustomInput  
+                        type="number"                         
+                           name="amount"
+                           value={formData.amount}
+                           onChange={handleInputChange}
+                           leftSection={<BsCurrencyDollar/>}
+                           required
+                           error={errors.amount}
+                           disabled={isFree}
+                       />
+            
+            {!isFree && formData.amount && (
+        <SimpleGrid cols={{ base: 1, sm: 2, md:1, lg: 3 }}
+        spacing={{ base: 10, sm: 'md' }} mt="md">
+          <CustomInput
+            type="text"
+            name="accountName"
+            value={formData.accountName}
+            onChange={handleInputChange}
+            label="Account Name"
+            required
+            error={errors.accountName}
+          />
+          <CustomInput
+            type="number"
+            name="accountNumber"
+            value={formData.accountNumber}
+            onChange={handleInputChange}
+            label="Account Number"
+            required
+            error={errors.accountNumber}
+          />
+          <CustomInput
+            type="text"
+            name="bankName"
+            value={formData.bankName}
+            onChange={handleInputChange}
+            label="Bank Name"
+            required
+            error={errors.bankName}
+          />
+        </SimpleGrid>
+      )}
+
             </Box>
         </>                    
         )}
