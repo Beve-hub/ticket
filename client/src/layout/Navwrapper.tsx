@@ -9,8 +9,8 @@ import EventSide from './EventSide';
 const NavWrapper = () => {
     const location = useLocation();
     const showNavbar = ['/',].includes(location.pathname);
-    const showSidebar = ['/single', '/dashboard', '/double', '/create', '/transaction',].includes(location.pathname);
-    const showEvent = ['/event', '/settings'].includes(location.pathname);
+    const showSidebar = ['/single', '/dashboard', '/double', '/create', '/transaction', '/myAccount'].includes(location.pathname);
+    const showEvent = ['/eventDashboard', '/promotion','/myBooking','/analysis','/sales', '/settings'].includes(location.pathname);
     return (
         <div>
             {showNavbar && <Navbar />}
