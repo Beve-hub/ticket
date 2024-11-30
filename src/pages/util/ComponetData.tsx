@@ -35,3 +35,13 @@ export const SideBarData: SideBarItem[] = [
   },  
  
  ]
+
+ export const data = [
+   { month: 'S', Revenue: 40, },
+   { month: 'M', Revenue: 22, },
+   { month: 'T', Revenue: 15, },
+   { month: 'W', Revenue: 50},
+   { month: 'T', Revenue: 50},
+   { month: 'F', Revenue: 38},
+   { month: 'S', Revenue: 5},
+ ];

@@ -91,6 +91,7 @@ const EventSide = () => {
                    cursor: "pointer",
                    alignItems: "center",
                  }}
+                 onClick={() => navigate('/settings')}
                >
                  <IoMdSettings size={20} />
                  <Text fw="400" fz="16" color={Color.BLACK}>
@@ -129,7 +130,7 @@ const EventSide = () => {
             >
               <Center display="grid" mt="auto" style={{ width: "100%", gap: 10 }}>
               <UnstyledButton
-                 
+                 onClick={() => navigate('/settings')}
                  style={{
                    display: "flex",
                    gap: 10,
@@ -159,13 +160,9 @@ const EventSide = () => {
                   <FaCircleUser  size={20} />
                   <Text fw="400" fz="14" color={Color.BLACK}>
                    Believe
-                  </Text>
-                 
+                  </Text>                 
                   <FiLogOut size={14} />
                 </UnstyledButton>
-
-                
-                
               </Center>
             </Box>
           )}
