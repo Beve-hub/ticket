@@ -5,7 +5,7 @@ import BookingCard from './BookingCard'
 
 const Side2 = () => {
     return (
-        <div>
+        <div >
             <PromoCard/>
             <BookingCard/>
             <TicketAna/>
