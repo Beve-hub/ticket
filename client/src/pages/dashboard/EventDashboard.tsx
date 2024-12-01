@@ -9,7 +9,7 @@ interface Props {
 
 const EventDashboard: React.FC<Props> = () => {
     return (
-        <Container size="md" mt="60" >
+        <Container size="lg" mt="60" >
             <Text>
                 <span style={{fontWeight:'bold',fontSize: '24px',}}>
                 Dashboard</span> <br /> overview of bookings, promotion, analytics and sales revenue

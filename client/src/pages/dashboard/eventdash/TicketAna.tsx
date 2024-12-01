@@ -1,14 +1,22 @@
-import React from 'react'
+import CustomTick from '@/pages/util/CustomTick';
+import { Color } from '@/pages/util/Theme'
+import {  Card,  Text} from '@mantine/core'
 
-interface Props {
-    
-}
-
-const TicketAna: React.FC<Props> = () => {
+const TicketAna = () => {
+   
     return (
-        <div>
-            ticket
-        </div>
+         <Card mt={10} style={{
+            backgroundColor: Color.SECONDARY,
+            padding: 20,
+            borderRadius: 10,
+            width: '100%',
+            height: '200px',
+           }}>
+           <Text>Ticket Analysis</Text>
+
+           <CustomTick />
+        </Card>
+           
     )
 }
 

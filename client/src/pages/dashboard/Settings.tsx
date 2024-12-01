@@ -1,14 +1,11 @@
-import React from 'react'
+import { Container } from '@mantine/core'
 
-interface Props {
-    
-}
 
-const Settings: React.FC<Props> = () => {
+const Settings = () => {
     return (
-        <div>
+        <Container size="lg" mt="60">
             settings
-        </div>
+        </Container>
     )
 }
 
