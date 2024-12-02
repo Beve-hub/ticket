@@ -9,14 +9,14 @@ const Side1 = () => {
         <div>
              <SimpleGrid
       cols={{ base: 1, sm: 1,md:2, lg:2  }}
-      spacing={{ base: 10, sm: 'md' }}
+      spacing={{ base: 20, sm: 'lg' }}
     >
       <Card  style={{
             backgroundColor: Color.SECONDARY,
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '200px',
+            height: '250px',
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
@@ -43,7 +43,7 @@ const Side1 = () => {
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '200px',
+            height: '250px',
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>

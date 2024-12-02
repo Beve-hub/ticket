@@ -20,18 +20,18 @@ const CustomTick = () => {
             </Text>
            </Box>
            <div style={{
-            marginTop:10,
+            marginTop:20,
            }}>
            <Progress size="xl" radius="xl" value={60} color={Color.ACCENT}/>
             </div>
             <div style={{
-            marginTop:10,
+            marginTop:20,
           
            }}>
            <Progress size="xl" radius="xl" value={60} color={Color.INFO_BG_COLOR}/>
             </div>
             <div style={{
-            marginTop:10,
+            marginTop:20,
           
            }}>
            <Progress size="xl" radius="xl" value={60} color={Color.ERROR_COLOR}/>

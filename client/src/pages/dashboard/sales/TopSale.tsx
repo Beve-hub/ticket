@@ -1,7 +1,8 @@
 import { Box,  Group, SimpleGrid, Text, Progress,} from '@mantine/core'
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyDollar,BsTicketPerforated } from "react-icons/bs";
 import { Color } from '@/pages/util/Theme'
 import { GoDotFill } from "react-icons/go";
+import { VscGraph } from "react-icons/vsc";
 
 const TopSale = () => {
     return (
@@ -32,10 +33,42 @@ const TopSale = () => {
             justifyContent: 'center',
             alignItems: 'center',
            }}>
-                < BsCurrencyDollar size={24}/>
+                <BsTicketPerforated size={24}/>
                 
            </Group>
-           <Text>Total Revenue</Text>
+           <Text>Ticket Sales</Text>
+            </Group>
+           
+            <Group style={{display:'grid'}}>
+                            
+                <Text fw={800} fz={24}>234</Text>                
+            </Group>
+      </Box>
+      <Box  style={{
+            backgroundColor: Color.SECONDARY,
+            padding: 20,
+            borderRadius: 10,
+            width: '100%',
+            height: '90px',
+            display:'flex',
+            justifyContent: 'space-between',
+           }}>
+            <Group>
+            <Group style={{
+            backgroundColor: Color.PRIMARY,
+            padding: 2,
+            borderRadius: 30,
+            color: Color.WHITE,
+            width:'40px',
+            height:'40px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+           }}>
+                < VscGraph size={24}/>
+                
+           </Group>
+           <Text>Promotion Expense</Text>
             </Group>
            
             <Group style={{display:'grid'}}>
@@ -72,39 +105,7 @@ const TopSale = () => {
            
             <Group style={{display:'grid'}}>
                             
-                <Text fw={800} fz={24}>$6,240.28</Text>                
-            </Group>
-      </Box>
-      <Box  style={{
-            backgroundColor: Color.SECONDARY,
-            padding: 20,
-            borderRadius: 10,
-            width: '100%',
-            height: '90px',
-            display:'flex',
-            justifyContent: 'space-between',
-           }}>
-            <Group>
-            <Group style={{
-            backgroundColor: Color.PRIMARY,
-            padding: 2,
-            borderRadius: 30,
-            color: Color.WHITE,
-            width:'40px',
-            height:'40px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-           }}>
-                < BsCurrencyDollar size={24}/>
-                
-           </Group>
-           <Text>Total Revenue</Text>
-            </Group>
-           
-            <Group style={{display:'grid'}}>
-                            
-                <Text fw={800} fz={24}>$6,240.28</Text>                
+                <Text fw={800} fz={24}>$26,240.28</Text>                
             </Group>
       </Box>
         </div>
@@ -118,7 +119,7 @@ const TopSale = () => {
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
-            <Text mb={30}>
+            <Text mb={30} style={{fontWeight:'bold',fontSize: '18px',}}>
             Ticket Analysis
             </Text>
 

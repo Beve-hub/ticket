@@ -25,11 +25,11 @@ const PromoIcon = [
 const PromoCard = () => {
     return (
         <Card  style={{
-            backgroundColor: Color.PRIMARY,
+            backgroundColor: Color.BLACK,
             padding: 10,
             borderRadius: 10,
             width: '100%',
-            height: '100px',
+            height: '120px',
            }}>
             <Box style={{display:'flex',
               justifyContent:'space-between',
@@ -47,7 +47,7 @@ const PromoCard = () => {
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
-           <Box mt={20}
+           <Box mt={40}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -70,7 +70,7 @@ const PromoCard = () => {
         ))}
               </Box>
 
-              <Box mt={10} style={{
+              <Box mt={30} style={{
           display: 'grid',
           alignItems: 'flex-end',
         }}>
