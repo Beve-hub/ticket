@@ -31,6 +31,80 @@ const data = [
       amount: '$300',
       status: 'confirm',
     },
+    {
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },
+    {
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },{
+      book: 6687,
+      name: 'jusin',
+      ticket: '5',
+      date: '22/12/2024',
+      time: '10:20AM',
+      amount: '$300',
+      status: 'confirm',
+    },
   ];
 
 
@@ -66,13 +140,13 @@ const Bookings = () => {
         <Table miw={700} horizontalSpacing="xl" verticalSpacing="sm">
       <Table.Thead  >
         <Table.Tr mb='lg'>
-          <Table.Th fz="18">BookingID</Table.Th>
-          <Table.Th fz="18">Name</Table.Th>
-          <Table.Th fz="18">No.Ticket</Table.Th>
-          <Table.Th fz="18">Time</Table.Th>
-          <Table.Th fz="18">Date</Table.Th>
-          <Table.Th fz="18">Amount</Table.Th>
-          <Table.Th fz="18">Status</Table.Th>
+          <Table.Th fz="16">BookingID</Table.Th>
+          <Table.Th fz="16">Name</Table.Th>
+          <Table.Th fz="16">No.Ticket</Table.Th>
+          <Table.Th fz="16">Time</Table.Th>
+          <Table.Th fz="16">Date</Table.Th>
+          <Table.Th fz="16">Amount</Table.Th>
+          <Table.Th fz="16">Status</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody fz="18" >{rows}</Table.Tbody>

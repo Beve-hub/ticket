@@ -10,7 +10,7 @@ const TicketAna = () => {
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '200px',
+            height: '250px',
            }}>
            <Text>Ticket Analysis</Text>
 

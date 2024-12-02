@@ -1,5 +1,6 @@
 import { Color } from '@/pages/util/Theme'
 import { Box, Card, Text, UnstyledButton } from '@mantine/core'
+import { useNavigate } from 'react-router-dom';
 
 const Book = [
     {
@@ -19,31 +20,32 @@ const Book = [
     },
 ]
 const BookingCard = () => {
+    const navigate = useNavigate();
     return (
         <Card mt={10} style={{
             backgroundColor: Color.SECONDARY,
             padding: 10,
             borderRadius: 10,
             width: '100%',
-            height: '240px',
+            height: '300px',
            }}>
-            <Box style={{display:'flex',
+            <Box mt={10} style={{display:'flex',
               justifyContent:'space-between',
               alignItems:'center',}}>
-                <Text fz={15}>
+                <Text  style={{ fontWeight: 'bold', fontSize: 16, }}>
                     Recent Booking 
                 </Text>
-                <UnstyledButton fz={13} fw={500} style={{color:Color.PRIMARY}}>
+                <UnstyledButton onClick={() => navigate('/sales')} fz={13} fw={500} style={{color:Color.PRIMARY}}>
                     View All
                 </UnstyledButton>
             </Box>
 
-            <Box mt={20}>
+            <Box mt={30}>
             {Book.map((item, index) => (
                 <Box key={index} mt={10} 
                 style={{display:'flex', 
                 justifyContent:'space-between',
-                backgroundColor:Color. SECONDARY_BG_COLOR, padding:10, borderRadius:5}}>
+                backgroundColor:Color. SECONDARY_BG_COLOR, padding:15, borderRadius:5}}>
                     <Text>{item.name}</Text>
                     <Text>${item.price}</Text>
                     <Text>{item.status}</Text>

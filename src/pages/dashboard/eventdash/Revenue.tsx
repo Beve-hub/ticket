@@ -8,12 +8,12 @@ interface Props {
 
 const Revenue: React.FC<Props> = () => {
     return (
-        <Box mt={12} style={{
+        <Box mt={20} style={{
             backgroundColor: Color.SECONDARY,
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '350px',
+           
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
@@ -23,9 +23,9 @@ const Revenue: React.FC<Props> = () => {
             
       <BarChart
       mt={100}
-        h={180}
+        h={250}
         data={data}
-        dataKey="days"
+        dataKey="day"
         series={[{ name: 'Revenue', color: Color.PRIMARY }]}
              />
         </Box>

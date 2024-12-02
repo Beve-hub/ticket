@@ -1,6 +1,6 @@
 import { Color } from '@/pages/util/Theme';
 import { Box, Pagination, ScrollArea, Table, Text } from '@mantine/core';
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const data = [
     {
@@ -50,15 +50,15 @@ const ExpenseTable = () => {
             borderRadius: '1rem',
             padding: '2rem 2rem',
           }}>
-            <Text style={{fontWeight:'bold',fontSize: '24px',}}>Expense Management</Text>
+            <Text mb={20} style={{fontWeight:'bold',fontSize: '18px',}}>Expense Management</Text>
             <ScrollArea   >
             <Table miw={700} horizontalSpacing="xl" verticalSpacing="sm">
           <Table.Thead  >
             <Table.Tr mb='lg'>
-              <Table.Th fz="18">BookingID</Table.Th>
-              <Table.Th fz="18">Name</Table.Th>
-              <Table.Th fz="18">No.Ticket</Table.Th>
-              <Table.Th fz="18">Time</Table.Th>
+              <Table.Th fz="14">BookingID</Table.Th>
+              <Table.Th fz="14">Name</Table.Th>
+              <Table.Th fz="14">No.Ticket</Table.Th>
+              <Table.Th fz="14">Time</Table.Th>
               
             </Table.Tr>
           </Table.Thead>
