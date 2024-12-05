@@ -9,6 +9,7 @@ export const Color = {
     DARK_GRAY: '#616161',
     TEXT_COLOR: '#121212',
     ERROR_COLOR: '#b71c1c',
+    ERROR_COLORS: '#b71c1c26',
     SUCCESS_COLOR: '#299165',
     SHADOW_COLOR: '#00B51226',
     WARNING_COLOR: '#ffeb3b',

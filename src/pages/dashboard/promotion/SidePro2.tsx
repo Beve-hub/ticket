@@ -1,6 +1,12 @@
-import { SimpleGrid,Card, Text, Box } from "@mantine/core"
+import { PieChart } from '@mantine/charts';
+import { Card, Text,  } from "@mantine/core"
 import { Color } from '@/pages/util/Theme';
 
+
+const data = [
+    { name: 'USA', value: 400, color: 'green' },
+    { name: 'Other', value: 200, color: 'gray.6' },
+  ];
 const SidePro2 = () => {
     return (
         <Card  style={{
@@ -12,7 +18,10 @@ const SidePro2 = () => {
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
-            card
+           <Text>Campaign Per Click</Text>
+           <PieChart
+      data={data} tooltipDataSource="segment" mx="auto"
+    />
         </Card>
     )
 }
