@@ -12,7 +12,8 @@ const TicketAna = () => {
             width: '100%',
             height: '250px',
            }}>
-           <Text>Ticket Analysis</Text>
+           <Text style={{ fontWeight: 'bold', 
+                    fontSize: 16, }}>Ticket Analysis</Text>
 
            <CustomTick />
         </Card>

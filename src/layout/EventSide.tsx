@@ -1,4 +1,4 @@
-import { AppShell, AppShellHeader, Burger, Group, Image, Text, Box, Center, UnstyledButton,  } from '@mantine/core';
+import { AppShell, Menu,AppShellHeader, Burger, Group, Image, Text, Box, Center, UnstyledButton,  } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
 import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../asset/logo2.png'
@@ -8,7 +8,7 @@ import { Color } from '@/pages/util/Theme';
 import { FiLogOut } from "react-icons/fi";
 import { FaCircleUser } from 'react-icons/fa6';
 import { IoMdSettings } from "react-icons/io";
-
+import { GoChevronRight } from "react-icons/go";
 const EventSide = () => {
     const navigate = useNavigate();
     const [opened, {toggle}] = useDisclosure(false);
@@ -139,30 +139,34 @@ const EventSide = () => {
                    width: "100%",
                    cursor: "pointer",
                    alignItems: "center",
-                 }}
-               >
+                 }} >
                  <IoMdSettings size={20} />
                  <Text fw="400" fz="16" color={Color.BLACK}>
                    Settings
                  </Text>
                </UnstyledButton>
-                <UnstyledButton
-                  style={{
-                    display: "flex",
-                    gap: 10,
-                    textDecoration: "none",
-                    justifyContent: "flex-start",
-                    width: "100%",
-                    cursor: "pointer",
-                    alignItems: "center",
+               <Menu>
+              <Menu.Target>
+                <UnstyledButton style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <FaCircleUser size={24} />
+                  <Text fw="500" fz="16" color={Color.BLACK}>
+                    Victor
+                  </Text>
+                  <GoChevronRight size={16} />
+                </UnstyledButton>
+              </Menu.Target>
+              <Menu.Dropdown>
+                
+                <Menu.Item
+                  onClick={() => {
+                 
                   }}
                 >
-                  <FaCircleUser  size={20} />
-                  <Text fw="400" fz="14" color={Color.BLACK}>
-                   Believe
-                  </Text>                 
-                  <FiLogOut size={14} />
-                </UnstyledButton>
+                  <FiLogOut size={18} />
+                  Log Out
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
               </Center>
             </Box>
           )}

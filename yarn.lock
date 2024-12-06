@@ -1663,18 +1663,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/dates@npm:^7.14.1":
-  version: 7.14.1
-  resolution: "@mantine/dates@npm:7.14.1"
+"@mantine/dates@npm:^7.14.3":
+  version: 7.14.3
+  resolution: "@mantine/dates@npm:7.14.3"
   dependencies:
     clsx: "npm:^2.1.1"
   peerDependencies:
-    "@mantine/core": 7.14.1
-    "@mantine/hooks": 7.14.1
+    "@mantine/core": 7.14.3
+    "@mantine/hooks": 7.14.3
     dayjs: ">=1.0.0"
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/63d8be42c16cb4908bd7bfc7e06e66abd10c32160ebf81aa4a27fad71fa240c7888d8ad2f9c65e3eb449a044f49e80ec2b574081070b8f009f988afb44482aee
+  checksum: 10c0/5ac78b7f732829341d767ddf5b63da9fd544e25a6bc6bd0e1a558ee93061ed3b7e8796bea1b3feca7244ffc2f57181dc2b6ba744c63b3a97566912204a980463
   languageName: node
   linkType: hard
 
@@ -1687,27 +1687,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:^7.14.1":
-  version: 7.14.1
-  resolution: "@mantine/notifications@npm:7.14.1"
+"@mantine/notifications@npm:^7.14.3":
+  version: 7.14.3
+  resolution: "@mantine/notifications@npm:7.14.3"
   dependencies:
-    "@mantine/store": "npm:7.14.1"
+    "@mantine/store": "npm:7.14.3"
     react-transition-group: "npm:4.4.5"
   peerDependencies:
-    "@mantine/core": 7.14.1
-    "@mantine/hooks": 7.14.1
+    "@mantine/core": 7.14.3
+    "@mantine/hooks": 7.14.3
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/a2523d4103b70bff8ee7f7e4dc235fb1c79ec538f9ae11138a40c4ab7e6a80f09140282b90aa2b6d0a44a5e49ce05a4525904d0ea774d4c2565e6d99249358ec
+  checksum: 10c0/21926a9555c2a1c863ca96a9224b0c10b81e13118aad79a9e6fb2fcaa4fed2b9a6f8d5f58287ae6b45f3c47d8055d8a6fe046c6afac988988ff962b4f4eb003a
   languageName: node
   linkType: hard
 
-"@mantine/store@npm:7.14.1":
-  version: 7.14.1
-  resolution: "@mantine/store@npm:7.14.1"
+"@mantine/store@npm:7.14.3":
+  version: 7.14.3
+  resolution: "@mantine/store@npm:7.14.3"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/94c346ec2c699161f1707e5de4b7ae101ce7643b5f6ec0b6cc873d902fe983c76a3c563286136a040687ef4e880a41b9a1044f2b671029790f44c4674278169e
+  checksum: 10c0/08a22ea2a52fe287da06e050101d85d601384e6b4ee20913b2200899d44e249690825ff88bcc2500546e278ef48ea98a7d84fe7109380b0d4a71b0f4b13ba5ba
   languageName: node
   linkType: hard
 
@@ -6640,9 +6640,9 @@ __metadata:
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.3.1"
     "@mantine/charts": "npm:^7.14.3"
     "@mantine/core": "npm:^7.14.3"
-    "@mantine/dates": "npm:^7.14.1"
+    "@mantine/dates": "npm:^7.14.3"
     "@mantine/hooks": "npm:^7.14.3"
-    "@mantine/notifications": "npm:^7.14.1"
+    "@mantine/notifications": "npm:^7.14.3"
     "@storybook/react": "npm:^8.3.5"
     "@storybook/react-vite": "npm:^8.3.5"
     "@testing-library/dom": "npm:^10.4.0"

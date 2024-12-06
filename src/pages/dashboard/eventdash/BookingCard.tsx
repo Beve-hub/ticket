@@ -32,7 +32,8 @@ const BookingCard = () => {
             <Box mt={10} style={{display:'flex',
               justifyContent:'space-between',
               alignItems:'center',}}>
-                <Text  style={{ fontWeight: 'bold', fontSize: 16, }}>
+                <Text  style={{ fontWeight: 'bold', 
+                    fontSize: 16, }}>
                     Recent Booking 
                 </Text>
                 <UnstyledButton onClick={() => navigate('/sales')} fz={13} fw={500} style={{color:Color.PRIMARY}}>
