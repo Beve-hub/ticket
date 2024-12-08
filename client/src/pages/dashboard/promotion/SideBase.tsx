@@ -17,14 +17,17 @@ export const data = [
   ];
 
 const SideBase: React.FC<Props> = () => {
-    const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
+    const isMobile = useMediaQuery("(min-width: 768px)");
     return (
         <SimpleGrid
         cols={{ base: 1, sm: 1,md:2, lg:2  }}
         spacing={{ base: 10, sm: 'md' }}>
             <div style={{backgroundColor:Color.LIGHT_GRAY, borderRadius:10, padding:20}}>
                 <Box style={{display:'flex', gap:20}}>
-                    <Image src={cutter} alt="" width={20} height={150} />
+                    {isMobile && (
+                        <Image src={cutter} alt="" width={20} height={150} />
+                    )}
+                    
                     <div>
                         <Text fz={13} fw={700} mb={10}>Dusin Gospel Concert</Text>
                         <div style={{display:'flex', justifyContent:'space-between',alignItems:'center'}}>
