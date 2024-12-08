@@ -12,6 +12,7 @@ import Promotion from './pages/dashboard/Promotion';
 import Sales from './pages/dashboard/Sales';
 import Analysis from './pages/dashboard/Analysis';
 import Settings from './pages/dashboard/Settings';
+import PromotionSummary from './pages/dashboard/promotion/PromotionSummary';
 
 
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         {path: '/sales', element: <Sales/>},
         {path: '/analysis', element: <Analysis/>},
         {path: '/settings', element: <Settings/>},
+        {path: '/promotionSummary', element: <PromotionSummary/>},
     ]
 },
 ]);

@@ -1,15 +1,16 @@
-import { SimpleGrid, Card, Text, Box, UnstyledButton, Progress, Modal, NativeSelect, Group } from "@mantine/core";
+import { SimpleGrid, Card, Text, Box, Stepper, UnstyledButton, Progress, Modal, NativeSelect, Group, Image } from "@mantine/core";
 import { Color } from '@/pages/util/Theme';
 import { SiGoogleads } from "react-icons/si";
 import { ImFacebook2 } from "react-icons/im";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaInstagramSquare } from "react-icons/fa";
 import { useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure,useMediaQuery } from "@mantine/hooks";
 import CustomButton from "@/pages/util/CustomButton";
 import { BsCurrencyDollar } from "react-icons/bs";
 import SideBase from "./SideBase";
 import { LineChart } from "@mantine/charts";
+import Gif from '@/asset/7efs.gif';
 
 export const CampaignData = [
     { value: 'Social media Campaign', label: 'Social media Campaign' },
@@ -77,10 +78,12 @@ interface Campaign {
 }
 
 const BottomCampaign = () => {
+    const isSmall = useMediaQuery('(max-width: 768px)');
     const [promote, setPromote] = useState<Campaign[]>([]);
     const [formOpened, { open: openForm, close: closeForm }] = useDisclosure(false);
     const [cardOpened, { open: openCard, close: closeCard }] = useDisclosure(false);
     const [selected, setSelected] = useState<Campaign | null>(null);
+    const [activeStep, setActiveStep ] = useState(0);
     const [formValue, setFormValue] = useState<Campaign>({
         campaign: '',
         platform: '',
@@ -103,17 +106,31 @@ const BottomCampaign = () => {
             return updatedForm;
         });
     };
+    const handleNext = () => {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1)
+     };
+  
+  
 
     const handleCardClick = (campaign: Campaign) => {
         setSelected(campaign);
         openCard();
     };
 
+   
     const handleSubmit = () => {
-        setPromote((prev) => [...prev, formValue]);
-        setFormValue({ campaign: '', platform: '', budget: '', reach: '', visit: '', days: '' });
-        closeForm();
+      setPromote((prev) => {
+        const updatedPromote = [{ ...formValue, status: 'Pending Payment' }, ...prev];
+        return updatedPromote.slice(0, 3); // Ensure a maximum of 3 campaigns
+      });
+      setFormValue({ campaign: '', platform: '', budget: '', reach: '', visit: '', days: '' });
+      setActiveStep(0);
+      closeForm();
     };
+    
+    
+
+
 
     return (
         <div style={{ marginTop: '30px', marginBottom: 20 }}>
@@ -182,8 +199,32 @@ const BottomCampaign = () => {
                 ))}
             </SimpleGrid>
 
-        <Modal opened={formOpened} onClose={closeForm} title="Authentication">
-            <Box >
+        <Modal opened={formOpened} onClose={closeForm}  title="Promote Event">
+            <Stepper active={activeStep}
+        onStepClick={(stepIndex) => setActiveStep(stepIndex)}
+             mt="md"
+        mb="lg"
+        size={isSmall ? 'xs' : 'md'}
+        styles={() => ({
+            separator: {
+              backgroundColor: Color.PRIMARY, // Change to your desired color
+            },
+            stepIcon: {
+                color: Color.PRIMARY,
+                outline:'1px solid Color.PRIMARY ',
+                
+            },stepCompletedIcon:{
+                color: Color.WHITE,
+                backgroundColor: Color.PRIMARY,
+                borderRadius: 20,
+                outline:'1px solid Color.PRIMARY ',
+            },stepWrapper:{
+                color: Color.PRIMARY, 
+            }
+          })}>
+
+              <Stepper.Step>
+              <Box >
             <Text style={{
                             fontSize: '0.95rem',
                             fontWeight: 'regular'
@@ -267,8 +308,69 @@ const BottomCampaign = () => {
         <Text fz={12}>Estimated Profile visit:</Text>
         <Text fz={12} style={{color:Color.GRAY}}>{formValue.visit}</Text>
     </div>
-    <CustomButton label="Submit" variant="filled" color={Color.PRIMARY} onClick={handleSubmit} fullWidth />
-</Box>
+    <CustomButton label="Next" variant="filled" color={Color.PRIMARY} onClick={handleNext} fullWidth />
+            </Box>
+              </Stepper.Step>
+
+              <Stepper.Step>
+               <Box>
+                <Text mt={20} fz={20} fw={700}>Summary</Text>
+                <div style={{display:'flex', justifyContent:'space-between', marginTop:30}}>
+                     <Text fz={16} fw={500}>Fees:</Text>
+                     <Text>$1.23 </Text>
+                </div>
+                <div style={{display:'flex', justifyContent:'space-between'}}>
+                     <Text fz={16} fw={500}>Ad Budget:</Text>
+                     <Text>${formValue.budget && formValue.days ? (Number(formValue.budget) * Number(formValue.days)) : 0} </Text>
+                </div>
+
+                <div style={{display:'flex', justifyContent:'space-between', margin:'30px 0px 20px'}}>
+                     <Text fz={16} fw={700}>Total:</Text>
+                     <Text fz={16} fw={700}>${(Number(formValue.budget) * Number(formValue.days)) + 1.23} </Text>
+                </div>
+                <CustomButton label="Next" variant="filled" color={Color.PRIMARY} onClick={handleNext} fullWidth />
+               </Box>
+              </Stepper.Step>
+
+              <Stepper.Step>
+               <Box>
+                <Text mt={20} fz={20} fw={700}>Payment Details</Text>
+                
+                <div style={{display:'flex', justifyContent:'space-between', marginTop:30}}>
+                     <Text fz={16} fw={500}>Bank Name:</Text>
+                     <Text>pay stack</Text>
+                </div>
+                <div style={{display:'flex', justifyContent:'space-between', marginTop:10}}>
+                     <Text fz={16} fw={500}>Account Name:</Text>
+                     <Text>billet limited</Text>
+                </div>
+                <div style={{display:'flex', justifyContent:'space-between', marginTop:10}}>
+                     <Text fz={16} fw={500}>Account Number:</Text>
+                     <Text>7897623445</Text>
+                </div>
+                
+
+                <div style={{display:'flex', justifyContent:'space-between', margin:'30px 0px 20px'}}>
+                     <Text fz={16} fw={700}>Amount Total:</Text>
+                     <Text fz={16} fw={700}>${(Number(formValue.budget) * Number(formValue.days)) + 1.23} </Text>
+                </div>
+                <CustomButton label="Pay Now" variant="filled" color={Color.PRIMARY} onClick={handleNext} fullWidth />
+               </Box>
+              </Stepper.Step>
+
+              <Stepper.Step>
+               <Box>
+                               
+                
+                <div style={{display:'grid', justifyContent:'center',alignItems:'center', marginTop:40, textAlign:'center'}}>
+                     <Text fz={22} fw={500}>Payment Successful</Text>
+                     <Image src={Gif}/>
+                </div>
+               
+                <CustomButton label="Update " variant="filled" color={Color.PRIMARY} onClick={handleSubmit} fullWidth />
+               </Box>
+              </Stepper.Step>
+            </Stepper>           
 
         </Modal>
 
