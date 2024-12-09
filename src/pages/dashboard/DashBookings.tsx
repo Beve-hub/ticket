@@ -1,9 +1,10 @@
-import { Box,  Container, Group,  Text,  UnstyledButton } from '@mantine/core';
+import { Box,  Button,  Container, Group,  Text,  UnstyledButton } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import CustomInput from '../util/CustomInput';
 import { Color } from '@/pages/util/Theme';
+import { IoIosSearch } from "react-icons/io";
 
 
 const tickets = [
@@ -35,25 +36,29 @@ const DashBookings = () => {
   };
 
   return (
-    <Container size={isSmall ? '90%' : '25rem'}
+    <Container size={isSmall ? '90%' : '30rem'}
     style={{
         marginTop: '7rem', // Adds 20rem spacing from the top
         padding: '5rem 2rem',
         borderRadius:'5px'
     }}>
         <div>
-        <CustomInput
+          <div style={{display:"flex", alignItems:'center', justifyContent:'center', marginBottom:30}}>
+          <CustomInput
         placeholder="Search tickets..."
         value={searchBuy}
         onChange={handleSearch}
-        mb="md"
+        style={{width:'30rem', borderRadius:'0px 15px 10px 5px'}}
       />
+      <Button variant='filled' color={Color.PRIMARY} style={{ borderRadius:'0px 15px 15px 0px'}}> <IoIosSearch size={24}/></Button>
+        
+          </div>
         
       <div>
         {fillterTickets.length > 0 ? (
-          <div>
+          <div style={{display:'grid', gap:10}}>
             {fillterTickets.map((ticket) => (
-              <Box key={ticket.id}  >
+              <Box key={ticket.id}  style={{background:Color.SHADOW_BG_COLOR, padding:15, borderRadius:5 }}>
                 <Group style={{display:'flex', justifyContent:'space-between',}}>
                 <Text> {ticket.name} </Text> 
                 

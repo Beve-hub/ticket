@@ -44,15 +44,16 @@ const MultipleTicket = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (validate()) {
+        if (!validate()) {
             try {
-                navigate('/myAccount', { state: { success: true, event: formData } });
+                navigate('/books');
                 notifications.show({
-                    title: 'Registration Successful',
-                    message: 'Event has been created successfully.',
+                    title: 'Booking Successful',
+                    message: 'Event has been booked successfully.',
                     color: Color.SUCCESS_COLOR,
                     position: 'bottom-right',
                 });
+               
             } catch (error) {
                 notifications.show({
                     title: 'Registration Failed',
@@ -63,7 +64,6 @@ const MultipleTicket = () => {
             }
         }
     };
-    
 
     // Fee is fixed for simplicity
   const fee = 1.23;
@@ -72,10 +72,10 @@ const MultipleTicket = () => {
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1)
-       };
+    };
     
   
-       const handleBack = () => {
+    const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -148,7 +148,7 @@ const MultipleTicket = () => {
             </Box>
             <Box mt={10}>
                     <CustomInput type="number"
-                                  label="Event Name"
+                                  label="No. of Ticket"
                                   name="ticketAmount"
                                   value={formData.ticketAmount}
                                   onChange={handleInputChange}

@@ -30,7 +30,7 @@ const EventSide = () => {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group>
           <Image src={Logo} alt="" width={30} height={35} style={{ marginLeft: 10 }} />
-          <Text>Ticket Nation</Text>
+          
         </Group>
         </Group>
       </AppShellHeader>

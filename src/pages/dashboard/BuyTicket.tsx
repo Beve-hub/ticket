@@ -9,7 +9,7 @@ const BuyTicket = () => {
     const location = useLocation();
     const ticketDetails = location.state
     return (
-        <Center h={800}>
+        <Center h={600}>
              <SimpleGrid
                 cols={{ base: 1, sm: 1, md: 1, lg: 2 }}
                 spacing={{ base: 10, sm: 'xl' }}

@@ -65,10 +65,8 @@ const Footer = () => {
         style={{ width: '100%' }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Image src={Logo} alt="" width={40} height={40} style={{ maxWidth: '70px' }} />
-          <Text size="xs" fw={700} color={Color.PRIMARY} style={{ marginTop: '5px', textAlign: 'start', width: '100%', maxWidth: '20rem' }}>
-          TicketHub
-          </Text>
+          <Image src={Logo} alt="" width={70} height={70} style={{ maxWidth: '1000px' }} />
+         
         </div>
         <div style={{ gap: 70, display: 'flex', flexWrap: 'wrap', justifyContent: isSmallScreen ? 'center' : 'flex-start' }}>
           {groups}

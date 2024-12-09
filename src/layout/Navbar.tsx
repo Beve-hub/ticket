@@ -6,8 +6,7 @@ import {
     Burger,
     Drawer,
     Image,
-    Text,
-  } from '@mantine/core';
+} from '@mantine/core';
   import { useDisclosure, useMediaQuery } from '@mantine/hooks';
   import { useEffect, useState } from 'react';
  import Logo from '../asset/logo2.png'
@@ -52,7 +51,7 @@ import {
           top: 0,
           left: 0,
           backdropFilter: scrolled ? 'none' : 'blur(10px)',
-          backgroundColor:Color.TRANSPARENT_WHITE,
+          backgroundColor:Color.WHITE,
           width: '100%',
           zIndex: 1000,
           transition: 'background-color 0.3s ease',
@@ -68,9 +67,8 @@ import {
             
             <Group  style={{ justifyContent: 'space-between', height: '100%', borderBottom: '1px solid #12121240', paddingRight:40,paddingLeft:40 }}>
            <Group>
-           <Image src={Logo}  h={50} /> {/* Replace with your logo */}
-           <Text size="md" fw={700} color={Color.PRIMARY} >
-            Ticket Hub</Text>
+           <Image src={Logo}  h={70} /> {/* Replace with your logo */}
+          
            </Group>
             
             {!isSmallScreen && (
