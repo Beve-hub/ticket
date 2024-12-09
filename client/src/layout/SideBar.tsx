@@ -62,9 +62,7 @@ const SideBar = () => {
         >
           <Group>
             <Image src={Logo} h={50} /> {/* Replace with your logo */}
-            <Text size="md" fw={700} color={Color.PRIMARY}>
-              Ticket Hub
-            </Text>
+            
           </Group>
 
           <Menu

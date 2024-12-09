@@ -65,7 +65,7 @@ interface Errors {
     bankName?:string;
 }
 
-
+ 
 
 const CreateEvent = () => {
     const isSmall = useMediaQuery('(max-width: 768px)');

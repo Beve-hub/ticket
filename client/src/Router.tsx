@@ -16,6 +16,7 @@ import { HomePage } from './pages/landingPage/HomePage';
 import DashBookings from './pages/dashboard/DashBookings';
 import SingleTicket from './pages/dashboard/SingleTicket';
 import MultipleTicket from './pages/dashboard/MultipleTicket';
+import BuyTicket from './pages/dashboard/BuyTicket';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: '/books', element: <DashBookings /> },
       { path: '/single', element: <SingleTicket /> },
       { path: '/double', element: <MultipleTicket /> },
+      { path: '/buy', element: <BuyTicket /> },
     ],
   },
 ]);
