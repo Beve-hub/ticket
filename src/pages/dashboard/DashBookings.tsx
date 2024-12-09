@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
 import CustomInput from '../util/CustomInput';
+import { Color } from '@/pages/util/Theme';
 
 
 const tickets = [
-  { id: 1, name: "Concert A", label: "2024-12-10" },
-  { id: 2, name: "Sports Event B", label: "2024-12-15" },
-  { id: 3, name: "Theater C", label: "2024-12-20" },
-  { id: 4, name: "Concert D", label: "2024-12-25" },
+  { id: 1, name: "Concert A", date: "2024-12-10", price:'$50' },
+  { id: 2, name: "Sports Event B", date: "2024-12-15", price:'$250' },
+  { id: 3, name: "Theater C", date: "2024-12-20", price:'$20' },
+  { id: 4, name: "Concert D", date: "2024-12-25", price:'$100' },
 ];
 
 const DashBookings = () => {
@@ -29,27 +30,24 @@ const DashBookings = () => {
     setFilterTickets(filtered);
   };
 
-  const handleClick = (name: string) => {
-    navigate(`/booking/${name}`);
+  const handleClick = (ticket: { id: number; name: string; date: string, price: string }) => {
+    navigate('/buy', { state: ticket });
   };
 
   return (
-    <Container size={isSmall ? '90%' : '30rem'}
+    <Container size={isSmall ? '90%' : '25rem'}
     style={{
         marginTop: '7rem', // Adds 20rem spacing from the top
         padding: '5rem 2rem',
         borderRadius:'5px'
     }}>
         <div>
-            <div>
-            <CustomInput
+        <CustomInput
         placeholder="Search tickets..."
         value={searchBuy}
         onChange={handleSearch}
         mb="md"
       />
-       
-            </div>
         
       <div>
         {fillterTickets.length > 0 ? (
@@ -59,7 +57,7 @@ const DashBookings = () => {
                 <Group style={{display:'flex', justifyContent:'space-between',}}>
                 <Text> {ticket.name} </Text> 
                 
-                <UnstyledButton onClick={() => handleClick(ticket.name)}>Buy</UnstyledButton>
+                <UnstyledButton onClick={() => handleClick(ticket)} style={{color:Color.PRIMARY}}>Buy</UnstyledButton>
                      
                 </Group>
                 

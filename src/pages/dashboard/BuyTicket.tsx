@@ -1,11 +1,13 @@
 import { Center, SimpleGrid, UnstyledButton } from '@mantine/core'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Color } from '../util/Theme';
 import { BsTicketPerforated } from 'react-icons/bs';
 
 
 const BuyTicket = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const ticketDetails = location.state
     return (
         <Center h={800}>
              <SimpleGrid
@@ -24,7 +26,7 @@ const BuyTicket = () => {
                         gap: '0.5rem',
                     }}
                     onClick={() => {
-                        navigate('/single');
+                        navigate('/single', { state: ticketDetails });
                       }}
                 >
                     <BsTicketPerforated size={24} color={Color.PRIMARY} />
@@ -43,7 +45,7 @@ const BuyTicket = () => {
                         borderColor: Color.PRIMARY,
                     }}
                     onClick={() => {
-                        navigate('/double');
+                        navigate('/double', { state: ticketDetails });
                       }}
                 >
                     <BsTicketPerforated size={24} color={Color.PRIMARY} />
