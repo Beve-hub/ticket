@@ -6,7 +6,7 @@ import { useMediaQuery } from '@mantine/hooks'
 const SectionPage = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
     return (
-        <Container  px={20} size="70rem" mt={150}>
+        <Container  px={20} size="70rem" >
        <SimpleGrid  cols={{ base: 1, sm: 1, lg: 2 }}
       spacing={{ base: 20, sm: 'xl', lg:200 }} mt='xl'
       style={{ alignItems:'center'}}>
