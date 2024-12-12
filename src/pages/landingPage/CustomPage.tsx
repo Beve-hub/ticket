@@ -1,12 +1,22 @@
 import { SimpleGrid, Text, Image,  Container } from '@mantine/core'
 import Hero from '../../asset/cus.png'
 import { useMediaQuery } from '@mantine/hooks'
+import { Color } from '@/pages/util/Theme';
 
 
 const CustomPage = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
     return (
-        <Container  px={20} size="70rem" mt={150}>
+     <div 
+     style={{
+      backgroundColor: Color.LIGHT_GRAY,
+      height: '70vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '5rem 0px'
+    }}>
+        <Container  px={20} size="70rem"  >
        <SimpleGrid  cols={{ base: 1, sm: 1, lg: 2 }}
       spacing={{ base: 20, sm: 'xl', lg:200 }} mt='xl'
       style={{ alignItems:'center'}}>
@@ -19,6 +29,7 @@ const CustomPage = () => {
       </div>
     </SimpleGrid>
     </Container>
+    </div>
     )
 }
 
