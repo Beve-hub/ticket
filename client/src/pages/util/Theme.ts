@@ -18,6 +18,6 @@ export const Color = {
     SHADOW_BG_COLOR: '#0055CC20',
     SECONDARY_BG_COLOR: '#0055CC10',
     TRANSPARENT: 'transparent',
-      TRANSPARENT_BLACK: 'rgba(0, 0, 0, 0.2)',
+      TRANSPARENT_BLACK: 'rgba(0, 0, 0, 0.5)',
     TRANSPARENT_WHITE: 'rgba(255, 255, 255, 0.8)',
 };
