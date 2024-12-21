@@ -10,7 +10,7 @@ const CustomPage = () => {
      <div 
      style={{
       backgroundColor: Color.LIGHT_GRAY,
-      height: '70vh',
+      padding: '70px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -20,11 +20,11 @@ const CustomPage = () => {
        <SimpleGrid  cols={{ base: 1, sm: 1, lg: 2 }}
       spacing={{ base: 20, sm: 'xl', lg:200 }} mt='xl'
       style={{ alignItems:'center'}}>
-      {!isMobile && <Image src={Hero} h={330} w="auto" />}
+      {!isMobile && <Image src={Hero} h={400} w="auto" />}
 
       <div>
-        <Text fz={isMobile ? 16 : 24} fw={700} mb={10}>Event management with ease. From invite, to RSVP, to showtime.</Text>
-        <Text fz={isMobile ? 14 : 16} fw={200} mb={10}>Start from a ready-made template, and customize your event website and registration or RSVP experience from end-to-end. Track event invitees from invitation with RSVP link to registration to check-in.</Text>
+        <Text fz={isMobile ? 16 : 26} fw={700} mb={10}>Event management with ease. From invite, to RSVP, to showtime.</Text>
+        <Text fz={isMobile ? 14 : 20} fw={200} mb={10}>Start from a ready-made template, and customize your event website and registration or RSVP experience from end-to-end. Track event invitees from invitation with RSVP link to registration to check-in.</Text>
         
       </div>
     </SimpleGrid>

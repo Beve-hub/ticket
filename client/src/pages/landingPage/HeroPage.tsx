@@ -7,7 +7,7 @@ const HeroPage = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <Container px={20} size="70rem" mt={150}>
+    <Container  size="lg" mt={150}>
       <div
         style={{
           position: 'relative',

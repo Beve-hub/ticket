@@ -14,7 +14,7 @@ const SectionPage = () => {
         <Text fz={isMobile ? 16 : 24} fw={700} mb={10}>Create brilliantly customizable event registration and online RSVP forms.</Text>
         <Text fz={isMobile ? 14 : 16} fw={200} mb={10}>From themes to layout, custom questions to secondary events, online payments to online invitations, RSVPify gives you complete control over your entire event registration and RSVP form.</Text>
       </div>
-      {!isMobile && <Image src={Hero} h={330} w="auto" />}
+      {!isMobile && <Image src={Hero} h={500} w="auto" />}
     </SimpleGrid>
     </Container>
     )
