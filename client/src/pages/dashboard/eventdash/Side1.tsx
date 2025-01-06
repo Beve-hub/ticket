@@ -7,7 +7,7 @@ import { Color } from '@/pages/util/Theme'
 const Side1 = () => {
     return (
         <div>
-             <SimpleGrid
+       <SimpleGrid
       cols={{ base: 1, sm: 1,md:2, lg:2  }}
       spacing={{ base: 20, sm: 'lg' }}
     >
@@ -16,7 +16,7 @@ const Side1 = () => {
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '250px',
+            height: '200px',
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
@@ -25,17 +25,17 @@ const Side1 = () => {
             padding: 2,
             borderRadius: 30,
             color: Color.WHITE,
-            width:'40px',
-            height:'40px',
+            width:'30px',
+            height:'30px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
            }}>
-                < BsCurrencyDollar size={24}/>
+                < BsCurrencyDollar size={22}/>
            </Group>
             <Group style={{display:'grid'}}>
                 <Text>Total Revenue</Text>              
-                <Text fw={800} fz={24}>$6,240.28</Text>                
+                <Text fw={800} fz={20}>$6,240.28</Text>                
             </Group>
       </Card>
       <Card  style={{
@@ -43,7 +43,7 @@ const Side1 = () => {
             padding: 20,
             borderRadius: 10,
             width: '100%',
-            height: '250px',
+            height: '200px',
             flexDirection: 'column',
             justifyContent: 'space-between',
            }}>
@@ -52,20 +52,20 @@ const Side1 = () => {
             padding: 2,
             borderRadius: 30,
             color: Color.WHITE,
-            width:'40px',
-            height:'40px',
+            width:'30px',
+            height:'30px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
            }}>
-                < IoTicketOutline size={24}/>
+                < IoTicketOutline size={22}/>
            </Group>
             <Group style={{display:'grid'}}>
                 <Text>Ticket Revenue</Text>              
-                <Text fw={800} fz={24}>$16,240.28</Text>                
+                <Text fw={800} fz={20}>$16,240.28</Text>                
             </Group>
       </Card>
-    </SimpleGrid>
+       </SimpleGrid>
     <Revenue/>
         </div>
        

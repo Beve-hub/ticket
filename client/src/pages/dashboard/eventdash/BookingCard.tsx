@@ -27,7 +27,7 @@ const BookingCard = () => {
             padding: 10,
             borderRadius: 10,
             width: '100%',
-            height: '300px',
+            height: '270px',
            }}>
             <Box mt={10} style={{display:'flex',
               justifyContent:'space-between',
@@ -41,7 +41,7 @@ const BookingCard = () => {
                 </UnstyledButton>
             </Box>
 
-            <Box mt={30}>
+            <Box mt={10}>
             {Book.map((item, index) => (
                 <Box key={index} mt={10} 
                 style={{display:'flex', 

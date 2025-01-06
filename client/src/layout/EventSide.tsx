@@ -172,7 +172,7 @@ const EventSide = () => {
           )}
         </Group>
       </AppShell.Navbar>
-
+          
         </AppShell>
     )
 }

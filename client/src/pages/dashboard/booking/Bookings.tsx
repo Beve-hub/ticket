@@ -130,7 +130,7 @@ const Bookings = () => {
     </Table.Tr>
   ));
   return (
-    <Container size="lg" mt="60">
+    <Container mr="40" mt="60">
       <Text>
         <span style={{ fontWeight: 'bold', fontSize: '24px' }}>Bookings</span>
         <br /> overview of bookings and cancellations.
