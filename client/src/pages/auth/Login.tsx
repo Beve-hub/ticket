@@ -1,6 +1,6 @@
 import { Center, Image, SimpleGrid, Box, Group, Text, Checkbox, UnstyledButton} from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks'; // Import useMediaQuery
-import IMG from '../../asset/Group 215.png';
+import IMG from '../../asset/Group 215.jpg';
 import Logo from '../../asset/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -109,14 +109,13 @@ const Login = () => {
    
 
     return (
-        <Center>
-            <SimpleGrid cols={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing="xl">
+        <SimpleGrid cols={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing="xl">
                 {!isSmallScreen && (
                     <Box
                         style={{                        
                             width: '100vh',
                             height: '100vh',
-                            backgroundColor:Color.PRIMARY,
+                            backgroundColor:Color.LIGHT_GRAY,
                            justifyContent: 'center',
                            alignItems:'center',
                            display: 'flex',
@@ -125,18 +124,21 @@ const Login = () => {
                         <Group style={{         
                             display:'grid',           
                             position: 'absolute',
+                            backgroundColor: Color.TRANSPARENT_WHITE,
+                            padding:5,
+                            borderRadius:20,
                             top: '10%',
-                            left: '10%',
+                            left: '40%',
                             transform: 'translate(-50%, -50%)',
                         }}>
                         <Image src={Logo} style={{
-                            width: '4rem',
-                            height: '4rem',                           
+                            width: '2rem',
+                            height: '2rem',                           
                         }} />
-                        <Text size="md" fw={700} color={Color.WHITE} style={{ marginTop: '5px', textAlign: 'start', width: '100%', maxWidth: '20rem' }}> TicketHub</Text>
+                        
                         </Group>
                         
-                        <Image src={IMG} h="60vh"  />
+                        <Image src={IMG} h="100%"  />
                     </Box>
                 )}
                 <Box
@@ -206,7 +208,6 @@ const Login = () => {
                  </div>
                 </Box>
             </SimpleGrid>
-        </Center>
     );
 };
 

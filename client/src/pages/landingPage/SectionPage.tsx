@@ -1,23 +1,115 @@
-import { SimpleGrid, Text, Image,  Container } from '@mantine/core'
-import Hero from '../../asset/cut.png'
-import { useMediaQuery } from '@mantine/hooks'
+import { Text, Container } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import { MdBusinessCenter, MdScience, MdSportsBasketball } from "react-icons/md";
+import { IoBusinessSharp } from "react-icons/io5";
+import { PiMicrophoneStageFill } from "react-icons/pi";
+import { FaMartiniGlassCitrus } from "react-icons/fa6";
+import { GiTechnoHeart } from "react-icons/gi";
+import { Color } from '../util/Theme';
 
+// Steps data
+export const Steps = [
+  {
+    icon: <IoBusinessSharp size={30} color={Color.PRIMARY} />,
+    title: "Business"
+  },
+  {
+    icon: <GiTechnoHeart size={30} color={Color.PRIMARY}/>,
+    title: "Technology"
+  },
+  {
+    icon: <MdBusinessCenter size={30} color={Color.PRIMARY}/>,
+    title: "Career"
+  },
+  {
+    icon: <MdSportsBasketball size={30} color={Color.PRIMARY}/>,
+    title: "Sport"
+  },
+  {
+    icon: <PiMicrophoneStageFill size={30} color={Color.PRIMARY}/>,
+    title: "Music"
+  },
+  {
+    icon: <FaMartiniGlassCitrus size={30} color={Color.PRIMARY}/>,
+    title: "Food & Art"
+  },
+  {
+    icon: <MdScience size={30} color={Color.PRIMARY}/>,
+    title: "Science"
+  }
+];
 
 const SectionPage = () => {
-    const isMobile = useMediaQuery("(max-width: 768px)");
-    return (
-        <Container  px={20} size="70rem" >
-       <SimpleGrid  cols={{ base: 1, sm: 1, lg: 2 }}
-      spacing={{ base: 20, sm: 'xl', lg:200 }} mt='xl'
-      style={{ alignItems:'center'}}>
-      <div>
-        <Text fz={isMobile ? 16 : 24} fw={700} mb={10}>Create brilliantly customizable event registration and online RSVP forms.</Text>
-        <Text fz={isMobile ? 14 : 16} fw={200} mb={10}>From themes to layout, custom questions to secondary events, online payments to online invitations, RSVPify gives you complete control over your entire event registration and RSVP form.</Text>
-      </div>
-      {!isMobile && <Image src={Hero} h={500} w="auto" />}
-    </SimpleGrid>
-    </Container>
-    )
-}
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
-export default SectionPage
+  return (
+    <div
+        style={{
+          overflowX: isMobile ? "auto" : "unset",
+          display: "flex",
+          justifyContent: isMobile ? "unset" : "center",
+          marginTop:40
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: isMobile ? "24px" : "25px", 
+            whiteSpace: isMobile ? "nowrap" : "normal",
+          }}
+        >
+          {Steps.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                gap: "12px", 
+                minWidth: isMobile ? "100px" : "120px", 
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  width: "80px",
+                  height: "80px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid #ccc",
+                  borderRadius: "50%",
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.1)";
+                  e.currentTarget.style.boxShadow =
+                    "0px 4px 15px rgba(0, 0, 0, 0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                {item.icon}
+              </div>
+              <Text
+                fw={500}
+                size={isMobile ? "sm" : "md"}
+                style={{
+                  textAlign: "center",
+                  lineHeight: "1.5",
+                  color:Color.PRIMARY
+                }}
+              >
+                {item.title}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </div>
+  );
+};
+
+export default SectionPage;

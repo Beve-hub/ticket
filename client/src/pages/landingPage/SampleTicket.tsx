@@ -154,11 +154,10 @@ const SampleTicket = () => {
   return (
     <div 
      style={{
-      backgroundColor: Color.LIGHT_GRAY,
+      backgroundColor: Color.WHITE,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      margin: '5rem 0px',
       padding: isMobile ? '20px' : '40px'
     }}>
         <Container  px={20} size="80rem"  >

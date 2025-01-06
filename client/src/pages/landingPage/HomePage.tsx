@@ -8,9 +8,9 @@ import SectionPage from "./SectionPage";
 export function HomePage() {
   return (
     <>
-      <HeroPage />
-      <CustomPage/>
-      <SectionPage/>
+      <HeroPage />   
+      <SectionPage/>   
+      <CustomPage/>            
       <SampleTicket/>
       <Pricing/>
       <Footer/>

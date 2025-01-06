@@ -5,7 +5,7 @@ import Register from './pages/auth/Register';
 import Analysis from './pages/dashboard/Analysis';
 import CreateEvent from './pages/dashboard/CreateEvent';
 import Dashboard from './pages/dashboard/Dashboard';
-import Bookings from './pages/dashboard/eventdash/Bookings';
+import Bookings from './pages/dashboard/booking/Bookings';
 import EventDashboard from './pages/dashboard/eventdash/EventDashboard';
 import MyAccount from './pages/dashboard/eventdash/MyAccount';
 import Promotion from './pages/dashboard/promotion/Promotion';
